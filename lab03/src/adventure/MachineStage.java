@@ -15,8 +15,7 @@ public class MachineStage implements AdventureStage {
         this.in = in;
         this.responses = new TreeMap<>(Map.of(
                 "li ka shing", new FillerStage("You head to Li Ka Shing 245, and sit in your favorite seat."),
-                "zoom", new FillerStage("You find an open seat, set up your laptop, and join the Zoom.")
-        ));
+                "zoom", new FillerStage("You find an open seat, set up your laptop, and join the Zoom.")));
     }
 
     @Override
@@ -38,8 +37,7 @@ public class MachineStage implements AdventureStage {
 
         System.out.println(msg);
 
-        outer:
-        while (true) {
+        outer: while (true) {
             System.out.println("Enter a sequence of ints, separated by commas:");
             String[] listOne = in.readLine().split("[\\s,]+");
             System.out.println("Enter a second sequence, with the same number of ints:");
@@ -61,7 +59,8 @@ public class MachineStage implements AdventureStage {
 
             int machineResult = sumOfElementwiseMax(arrOne, arrTwo);
 
-            System.out.println("The machine whirrs briefly before outputting a slip of paper, reading " + machineResult);
+            System.out
+                    .println("The machine whirrs briefly before outputting a slip of paper, reading " + machineResult);
             System.out.println("Does that seem right to you?");
             System.out.println("Enter [y] if you want to move on, and anything else to try again.");
             String response = in.readLine().toLowerCase();
@@ -78,26 +77,12 @@ public class MachineStage implements AdventureStage {
     }
 
     public static int mysteryMax(int a, int b) {
-        int w = (b - a) >> 31;
-        int z = ~(b - a) >> 31;
-
-        int max = b & w | a & z;
-        return max;
+        return a < b ? b : a;
     }
 
     public static int mysteryAdd(int a, int b) {
-        int x = a, y = b;
-        int xor, and, temp;
-        and = x & y;
-        xor = x ^ y;
 
-        while (and != 0) {
-            and <<= 1;
-            temp = xor ^ and;
-            and &= xor;
-            xor = temp;
-        }
-        return xor;
+        return a + b;
     }
 
     /**
@@ -126,7 +111,7 @@ public class MachineStage implements AdventureStage {
         int i = 0;
         int sum = 0;
         while (i < x.length) {
-            sum = sum + mysteryAdd(sum, x[i]);
+            sum = mysteryAdd(sum, x[i]);
             i = i + 1;
         }
         return sum;

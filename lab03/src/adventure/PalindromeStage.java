@@ -16,12 +16,10 @@ public class PalindromeStage implements AdventureStage {
         AdventureStage nextStage = new FillerStage(
                 "Mm, tasty. Briefly, you wonder if free will is an illusion. You hear some people talking " +
                         "about a machine in Soda and decide to check it out.",
-                Map.of("go", new MachineStage(in))
-        );
+                Map.of("go", new MachineStage(in)));
         this.responses = new TreeMap<>(Map.of(
                 "va cafe", nextStage,
-                "hearst food court", nextStage
-        ));
+                "hearst food court", nextStage));
     }
 
     @Override
@@ -61,24 +59,30 @@ public class PalindromeStage implements AdventureStage {
         return responses;
     }
 
-    /** Returns a new IntList with the contents of the original IntList in reverse order.*/
+    /**
+     * Returns a new IntList with the contents of the original IntList in reverse
+     * order.
+     */
     private static IntList reverseList(IntList l) {
         IntList reversed = null;
-        while (l.rest != null) {
-            reversed = new IntList(l.first, reversed);
+        IntList newNode;
+        while (l != null) {
+            newNode = new IntList(l.first, reversed);
+            reversed = newNode;
             l = l.rest;
         }
         return reversed;
     }
 
     /**
-     * Given an input string of digits, converts it into an IntList of single-digit ints.
+     * Given an input string of digits, converts it into an IntList of single-digit
+     * ints.
      * For example, the string "606" is converted to 6 -> 0 -> 6.
      */
     private static IntList digitsToIntList(String s) {
         int[] a = new int[s.length()];
-        for (int i = s.length(); i > 0; i++) {
-            a[s.length() - i] = Character.getNumericValue(s.charAt(i));
+        for (int i = 0; i < s.length(); i++) {
+            a[i] = Character.getNumericValue(s.charAt(i));
         }
         return IntList.of(a);
     }

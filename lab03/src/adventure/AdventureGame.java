@@ -35,12 +35,12 @@ public class AdventureGame {
             return;
         }
         AdventureStage poss;
+
         while (true) {
             poss = this.parseResponse(in.readLine());
             if (poss != null) {
                 break;
             }
-
             System.out.println("Sorry, I don't understand that. Please type one of the responses in the brackets!");
         }
         this.currentStage = poss;
