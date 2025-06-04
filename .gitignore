@@ -72,3 +72,5 @@ synsets1000-subgraph.txt
 # Please don't unless you know what you're doing
 *.iml
 **/.idea/**
+
+library-sp24/
