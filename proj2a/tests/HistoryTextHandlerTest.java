@@ -1,4 +1,4 @@
-/* 
+
 import browser.NgordnetQuery;
 import main.HistoryTextHandler;
 import ngrams.NGramMap;
@@ -26,4 +26,3 @@ public class HistoryTextHandlerTest {
     }
 
 }
-*/
