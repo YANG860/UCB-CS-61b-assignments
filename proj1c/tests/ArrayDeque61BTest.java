@@ -53,7 +53,7 @@ public class ArrayDeque61BTest {
 
     // 测试迭代器
     @Test
-    void testIterator() {
+    void testIterato r() {
         deque.addLast(1);
         deque.addLast(2);
         Iterator<Integer> iter = deque.iterator();
@@ -82,4 +82,12 @@ public class ArrayDeque61BTest {
         assertThat(deque.toString()).isEqualTo("[1]");
     }
 
-}
+    @Test
+    public void testAddLast(){
+        ArrayDeque61B<Integer> deque = new ArrayDeque61B<>();
+        deque.addLast(1);
+        assertThat(deque.get(0)).isEqualTo(1);
+
+    }
+
+} 
