@@ -1,4 +1,4 @@
-package plotting;
+package main.plotting;
 
 import ngrams.TimeSeries;
 import org.knowm.xchart.BitmapEncoder;
