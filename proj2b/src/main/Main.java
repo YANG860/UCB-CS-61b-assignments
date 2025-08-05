@@ -16,7 +16,7 @@ public class Main {
         hns.startUp();
         hns.register("history", new DummyHistoryHandler());
         hns.register("historytext", new DummyHistoryTextHandler());
-        hns.register("hyponyms", new HyponymsHandler());
+        hns.register("hyponyms", new HyponymsHandler(synsetFile,hyponymFile));
 
         System.out.println("Finished server startup! Visit http://localhost:4567/ngordnet.html");
     }
